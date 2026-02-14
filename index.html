@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3200/3200742.png">
+  <title>AttendanceHub - Secure Registry</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    
+    :root {
+      --bg: #f9fafb; 
+      --text: #111827; 
+      --card: #ffffff; 
+      --primary: #4f46e5;
+      --border: #e5e7eb;
+    }
+
+    body.dark-theme {
+      --bg: #0f172a; 
+      --text: #f8fafc; 
+      --card: #1e293b; 
+      --primary: #818cf8;
+      --border: #334155;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .signature-pad {
+      border: 2px dashed var(--border);
+      background: white;
+      border-radius: 0.75rem;
+      cursor: crosshair;
+    }
+    
+    * { transition: background-color 0.2s ease, border-color 0.2s ease; }
+
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    @keyframes loading {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(250%); }
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.463.0?deps=react@19.0.0",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2.45.4",
+    "react-signature-canvas": "https://esm.sh/react-signature-canvas@1.0.6?deps=react@19.0.0",
+    "qrcode.react": "https://esm.sh/qrcode.react@3.1.0?deps=react@19.0.0",
+    "jspdf": "https://esm.sh/jspdf@2.5.1",
+    "jspdf-autotable": "https://esm.sh/jspdf-autotable@3.8.2",
+    "@vercel/analytics/react": "https://esm.sh/@vercel/analytics@1.4.1/react?deps=react@19.0.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@vercel/analytics/": "https://esm.sh/@vercel/analytics@^1.6.1/"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="index.tsx"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(err => {
+          console.log('SW registration failed: ', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

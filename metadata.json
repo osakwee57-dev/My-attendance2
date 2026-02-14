@@ -1,0 +1,5 @@
+{
+  "name": "Supabase Connection Hub",
+  "description": "A diagnostic dashboard to verify and test connectivity to your Supabase backend, specifically checking profiles, sessions, and attendance tables.",
+  "requestFramePermissions": []
+}
